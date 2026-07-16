@@ -1,0 +1,4 @@
+name: Dev
+variables:
+  - name: url
+    value: http://127.0.0.1:12345

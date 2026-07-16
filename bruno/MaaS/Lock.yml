@@ -1,0 +1,32 @@
+info:
+  name: Lock
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{url}}/v1/lock"
+  body:
+    type: json
+    data: |-
+      {
+        "subject": "{{subject}}",
+        "owner": "{{owner}}",
+        "duration": "{{duration}}"
+      }
+  auth: inherit
+
+runtime:
+  variables:
+    - name: owner
+      value: 04c43969-3552-4a5b-bd1b-cbcb07aa3d6f
+    - name: subject
+      value: bongo
+    - name: duration
+      value: 10s
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

@@ -1,0 +1,16 @@
+version: 3
+
+tasks:
+  upRedis:
+    desc: Bring up redis
+    internal: true
+    cmds:
+      - docker compose up -d redis
+
+  run:
+    desc: Run the program
+    deps: [upRedis]
+    env:
+      REDIS_URL: 127.0.0.1:6379
+    cmds:
+      - go run main.go
